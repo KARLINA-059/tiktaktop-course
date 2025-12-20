@@ -1,0 +1,1112 @@
+<!DOCTYPE html>
+<html lang="id" data-bs-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontak - Tik Tak Top Course</title>
+    
+    <!-- Bootstrap 5 CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    
+    <!-- Font Google -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Cache Control -->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <meta name="version" content="1.1.20251219">
+    
+    <!-- Animate CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    
+    <!-- Link ke CSS External -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        :root {
+            --primary-color: #e74c3c;
+            --secondary-color: #8e44ad;
+            --accent-color: #4cc9f0;
+            --gradient-primary: linear-gradient(135deg, #e74c3c 0%, #8e44ad 100%);
+            --gradient-secondary: linear-gradient(135deg, #4cc9f0 0%, #e74c3c 100%);
+            --dark-color: #1a1a2e;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+            background: #f8f9fa;
+            color: #333;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+        }
+        
+        /* Navbar Enhanced */
+        .navbar {
+            background: rgba(255, 255, 255, 0.95) !important;
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(67, 97, 238, 0.1);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            padding: 1rem 0;
+        }
+        
+        .navbar.scrolled {
+            padding: 0.5rem 0;
+            box-shadow: 0 4px 20px rgba(67, 97, 238, 0.1);
+        }
+        
+        .navbar-brand {
+            font-weight: 800;
+            font-size: 1.8rem !important;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .nav-link {
+            font-weight: 500;
+            margin: 0 0.5rem;
+            padding: 0.5rem 1rem !important;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            color: #495057 !important;
+        }
+        
+        .nav-link:hover {
+            background: rgba(67, 97, 238, 0.1);
+            transform: translateY(-2px);
+            color: var(--primary-color) !important;
+        }
+        
+        .nav-link.active {
+            background: var(--gradient-primary);
+            color: white !important;
+        }
+        
+        .nav-link:hover, .nav-link.active {
+            background-color: rgba(255,255,255,0.15);
+            transform: translateY(-2px);
+        }
+        
+        .about-hero {
+            background: linear-gradient(135deg, rgba(67, 97, 238, 0.95) 0%, rgba(58, 12, 163, 0.9) 100%),
+                        url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: white;
+            padding: 50px;
+            margin-top: 0px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .about-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".15" fill="white"/><path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".3" fill="white"/><path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" opacity=".5" fill="white"/></svg>');
+            background-size: cover;
+            background-position: bottom;
+            opacity: 0.2;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .cert-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(67, 97, 238, 0.3);
+        }
+        
+        .btn-about {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            font-weight: 600;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn-about:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .btn-about .ripple {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: scale(0);
+            animation: ripple 0.6s linear;
+            pointer-events: none;
+        }
+        
+        @keyframes ripple {
+            to {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+        
+        #backToTop {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.3s ease;
+        }
+        
+        .contact-card {
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 12px 24px rgba(0,0,0,0.08);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            height: 100%;
+            overflow: hidden;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .contact-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            z-index: 2;
+        }
+        
+        .contact-card:hover {
+            transform: translateY(-12px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        
+        .contact-icon {
+            width: 70px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            margin-bottom: 25px;
+            font-size: 1.8rem;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+        }
+        
+        .contact-form {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+        
+        .form-control, .form-select {
+            border: 2px solid #e9ecef;
+            border-radius: 12px;
+            padding: 14px 18px;
+            transition: all 0.3s;
+            font-size: 1rem;
+        }
+        
+        .form-control:focus, .form-select:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 0.3rem rgba(13, 110, 253, 0.2);
+            transform: translateY(-2px);
+        }
+        
+        .btn-submit {
+            background: linear-gradient(135deg, var(--secondary-color) 0%, #157347 100%);
+            color: white;
+            padding: 16px 35px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 12px;
+            transition: all 0.3s;
+            box-shadow: 0 8px 20px rgba(25, 135, 84, 0.3);
+            letter-spacing: 0.5px;
+        }
+        
+        .btn-submit:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(25, 135, 84, 0.4);
+        }
+        
+        .btn-outline-primary {
+            border-width: 2px;
+            border-radius: 10px;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        
+        .btn-outline-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 15px rgba(13, 110, 253, 0.2);
+        }
+        
+        .map-container {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            height: 350px;
+            position: relative;
+        }
+        
+        .map-placeholder {
+            background: linear-gradient(45deg, #495057, #343a40);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            padding: 20px;
+        }
+        
+        .social-link {
+            width: 50px;
+            height: 50px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            color: white;
+            margin: 0 8px 10px;
+            transition: all 0.3s;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+        
+        .social-link:hover {
+            transform: translateY(-8px) rotate(5deg);
+            box-shadow: 0 12px 20px rgba(0,0,0,0.2);
+        }
+        
+        .bg-instagram {
+            background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D);
+        }
+        
+        .bg-facebook {
+            background: linear-gradient(45deg, #1877F2, #0D5F9E);
+        }
+        
+        .bg-whatsapp {
+            background: linear-gradient(45deg, #25D366, #128C7E);
+        }
+        
+        .bg-youtube {
+            background: linear-gradient(45deg, #FF0000, #CC0000);
+        }
+        
+        .bg-tiktok {
+            background: linear-gradient(45deg, #000000, #25F4EE, #FE2C55);
+        }
+        
+        .accordion-button {
+            font-weight: 600;
+            padding: 18px 20px;
+            border-radius: 10px !important;
+            border: none;
+            background-color: #f8f9fa;
+        }
+        
+        .accordion-button:not(.collapsed) {
+            background-color: rgba(13, 110, 253, 0.1);
+            color: var(--primary-color);
+            box-shadow: 0 4px 10px rgba(13, 110, 253, 0.1);
+        }
+        
+        .accordion-item {
+            border: none;
+            border-radius: 10px !important;
+            margin-bottom: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+        
+        footer {
+            background: linear-gradient(135deg, var(--dark-color) 0%, #000 100%);
+            color: white;
+            margin-top: 80px;
+            padding-top: 60px;
+            position: relative;
+        }
+        
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+        }
+        
+        .footer-link {
+            color: #ddd;
+            text-decoration: none;
+            transition: all 0.3s;
+            display: inline-block;
+            margin-bottom: 8px;
+        }
+        
+        .footer-link:hover {
+            color: white;
+            transform: translateX(5px);
+            text-decoration: underline;
+        }
+        
+        .social-icon {
+            width: 45px;
+            height: 45px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s;
+            font-size: 1.2rem;
+        }
+        
+        .social-icon:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+        }
+        
+        .bg-instagram { background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D); }
+        .bg-facebook { background: linear-gradient(45deg, #1877F2, #0D5F9E); }
+        .bg-youtube { background: linear-gradient(45deg, #FF0000, #CC0000); }
+        .bg-linkedin { background: linear-gradient(45deg, #0077B5, #005885); }
+        .bg-twitter { background: linear-gradient(45deg, #1DA1F2, #0D95E8); }
+        
+        .hover-opacity-100:hover {
+            opacity: 1 !important;
+        }
+        
+        .floating-button {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+            z-index: 1000;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+        
+        .floating-button:hover {
+            transform: scale(1.1) rotate(15deg);
+            color: white;
+            box-shadow: 0 12px 30px rgba(37, 211, 102, 0.5);
+        }
+        
+        .section-title {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 40px;
+            font-weight: 700;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+            border-radius: 2px;
+        }
+        
+        .text-center .section-title::after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        @media (max-width: 992px) {
+            .contact-hero {
+                padding: 80px 0 60px;
+                text-align: center;
+            }
+            
+            .hero-icon {
+                display: none;
+            }
+            
+            .contact-form {
+                padding: 30px 25px;
+            }
+            
+            .floating-button {
+                bottom: 20px;
+                right: 20px;
+                width: 55px;
+                height: 55px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .contact-hero {
+                padding: 60px 0 50px;
+            }
+            
+            .contact-hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .contact-card {
+                margin-bottom: 25px;
+            }
+            
+            .floating-button {
+                bottom: 15px;
+                right: 15px;
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
+            }
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animate-on-scroll {
+            animation: fadeInUp 0.8s ease-out;
+        }
+        
+        .contact-card, .contact-form, .map-container {
+            animation: fadeInUp 0.8s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar (Sama dengan index.html) -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <div class="bg-gradient-primary rounded-circle p-2 me-3 shadow-sm">
+                    <i class="bi bi-lightbulb-fill text-white fs-4"></i>
+                </div>
+                <span class="fw-bold">TikTakTop</span>
+            </a>
+            
+            <!-- Mobile Menu Toggle -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <!-- Navbar Menu -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-lg-center">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">
+                            <i class="bi bi-house-door me-2"></i> Home
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">
+                            <i class="bi bi-info-circle me-2"></i> About
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" data-bs-toggle="dropdown">
+                            <i class="bi bi-stack me-2"></i> Layanan
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end shadow-lg border-0 rounded-3">
+                            <li><a class="dropdown-item py-3" href="services.html">
+                                <i class="bi bi-info-square me-2 text-danger"></i> Informasi Layanan
+                            </a></li>
+                            <li><a class="dropdown-item py-3" href="pendaftaran.html">
+                                <i class="bi bi-pencil-square me-2 text-danger"></i> Pendaftaran
+                            </a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="contact.html">
+                            <i class="bi bi-chat-dots me-2"></i> Kontak
+                        </a>
+                    </li>
+                    <li class="nav-item ms-lg-3">
+                        <a href="pendaftaran.html" class="btn btn-danger btn-lg px-4">
+                            <i class="bi bi-rocket-takeoff me-2"></i> Mulai Belajar
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="about-hero">
+        <div class="container">
+            <div class="row align-items-center hero-content">
+                <div class="col-lg-8 animate__animated animate__fadeInLeft">
+                    <span class="badge bg-white text-primary fs-6 px-4 py-2 mb-3 shadow-sm">
+                        <i class="bi bi-chat-dots me-2"></i> Hubungi Kami
+                    </span>
+                    <h1 class="display-4 fw-bold mb-4">Kami Siap Membantu Anda</h1>
+                    <p class="lead mb-4">Tim kami berkomitmen untuk memberikan dukungan terbaik dalam perjalanan belajar teknologi Anda. Hubungi kami kapan saja untuk informasi lebih lanjut.</p>
+                    <div class="d-flex flex-wrap gap-3">
+                        <a href="#contact-form" class="btn btn-primary btn-lg px-4 py-3 btn-about">
+                            <i class="bi bi-envelope me-2"></i> Kirim Pesan
+                        </a>
+                        <a href="pendaftaran.html" class="btn btn-outline-primary btn-lg px-4 py-3 btn-about">
+                            <i class="bi bi-pencil-square me-2"></i> Daftar Kursus
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-4 text-center animate__animated animate__fadeInRight">
+                    <div class="bg-white rounded-4 p-4 shadow-lg">
+                        <i class="bi bi-headset display-1 text-primary mb-3"></i>
+                        <h5 class="fw-bold">24/7 Support</h5>
+                        <p class="text-muted mb-0">Tim Support Siap Membantu</p>
+                        <div class="mt-3">
+                            <span class="cert-badge">
+                                <i class="bi bi-clock-fill"></i>
+                                <span>Respon < 1 Jam</span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Info -->
+    <section class="py-5" style="padding-top: 5rem !important;">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title">Hubungi Kami</h2>
+                <p class="text-muted">Pilih cara yang paling nyaman untuk menghubungi kami</p>
+            </div>
+            
+            <div class="row g-4">
+                <!-- Alamat -->
+                <div class="col-md-4">
+                    <div class="card contact-card">
+                        <div class="card-body text-center p-4">
+                            <div class="contact-icon bg-danger text-white mx-auto">
+                                <i class="bi bi-geo-alt"></i>
+                            </div>
+                            <h4 class="card-title mb-3">Alamat</h4>
+                            <p class="card-text">
+                                <strong>Tik Tak Top Course</strong><br>
+                                Jl. Teknologi No. 123<br>
+                                Kel. Pendidikan, Kec. Teknologi<br>
+                                Kota Pendidikan, Jawa Barat 40123
+                            </p>
+                            <div class="mt-4">
+                                <a href="#map" class="btn btn-outline-primary px-4">
+                                    <i class="bi bi-map me-2"></i>Lihat Peta
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Kontak -->
+                <div class="col-md-4">
+                    <div class="card contact-card">
+                        <div class="card-body text-center p-4">
+                            <div class="contact-icon bg-success text-white mx-auto">
+                                <i class="bi bi-telephone"></i>
+                            </div>
+                            <h4 class="card-title mb-3">Kontak & Jam Operasional</h4>
+                            <div class="text-start">
+                                <p class="mb-2">
+                                    <i class="bi bi-telephone-fill text-primary me-2"></i>
+                                    <strong>(022) 123-4567</strong>
+                                </p>
+                                <p class="mb-2">
+                                    <i class="bi bi-whatsapp text-success me-2"></i>
+                                    <strong>+62 812-3456-7890</strong>
+                                </p>
+                                <p class="mb-3">
+                                    <i class="bi bi-envelope text-info me-2"></i>
+                                    <strong>info@tiktaktop.com</strong>
+                                </p>
+                                <hr>
+                                <p class="mb-1"><strong>Senin - Jumat:</strong> 08:00 - 17:00</p>
+                                <p class="mb-0"><strong>Sabtu:</strong> 08:00 - 15:00</p>
+                                <p><strong>Minggu:</strong> Libur</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Sosial Media -->
+                <div class="col-md-4">
+                    <div class="card contact-card">
+                        <div class="card-body text-center p-4">
+                            <div class="contact-icon bg-warning text-white mx-auto">
+                                <i class="bi bi-people"></i>
+                            </div>
+                            <h4 class="card-title mb-3">Sosial Media</h4>
+                            <p class="card-text mb-4">Ikuti kami di media sosial untuk update terbaru, tips belajar, dan promo menarik.</p>
+                            
+                            <div class="d-flex justify-content-center flex-wrap">
+                                <a href="#" class="social-link bg-instagram" title="Instagram">
+                                    <i class="bi bi-instagram fs-5"></i>
+                                </a>
+                                <a href="#" class="social-link bg-facebook" title="Facebook">
+                                    <i class="bi bi-facebook fs-5"></i>
+                                </a>
+                                <a href="#" class="social-link bg-whatsapp" title="WhatsApp">
+                                    <i class="bi bi-whatsapp fs-5"></i>
+                                </a>
+                                <a href="#" class="social-link bg-youtube" title="YouTube">
+                                    <i class="bi bi-youtube fs-5"></i>
+                                </a>
+                                <a href="#" class="social-link bg-tiktok" title="TikTok">
+                                    <i class="fab fa-tiktok fs-5"></i>
+                                </a>
+                            </div>
+                            
+                            <div class="mt-4">
+                                <small class="text-muted">Response time: < 2 jam di jam operasional</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form & Map -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row g-5">
+                <!-- Form -->
+                <div class="col-lg-6">
+                    <div class="contact-form" id="contact-form">
+                        <h2 class="mb-4">Kirim Pesan kepada Kami</h2>
+                        <p class="text-muted mb-4">Isi form berikut dan kami akan menghubungi Anda dalam 1x24 jam.</p>
+                        
+                        <form id="contactForm">
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">Nama Lengkap <span class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" placeholder="Masukkan nama lengkap" required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">Email <span class="text-danger">*</span></label>
+                                    <input type="email" class="form-control" placeholder="nama@email.com" required>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label class="form-label">Nomor WhatsApp <span class="text-danger">*</span></label>
+                                <div class="input-group">
+                                    <span class="input-group-text">+62</span>
+                                    <input type="tel" class="form-control" placeholder="812-3456-7890" required>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label class="form-label">Subjek <span class="text-danger">*</span></label>
+                                <select class="form-select" required>
+                                    <option value="">Pilih subjek...</option>
+                                    <option value="info-kursus">Informasi Kursus</option>
+                                    <option value="pendaftaran">Pendaftaran</option>
+                                    <option value="konsultasi">Konsultasi Karir</option>
+                                    <option value="partnership">Partnership/Kerjasama</option>
+                                    <option value="lainnya">Lainnya</option>
+                                </select>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <label class="form-label">Pesan <span class="text-danger">*</span></label>
+                                <textarea class="form-control" rows="5" placeholder="Tulis pesan Anda di sini..." required></textarea>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="newsletter" checked>
+                                    <label class="form-check-label" for="newsletter">
+                                        Saya ingin menerima newsletter dan informasi promo
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <div class="d-grid">
+                                <button type="submit" class="btn-submit">
+                                    <i class="bi bi-send-check me-2"></i>Kirim Pesan
+                                </button>
+                            </div>
+                            
+                            <!-- Alert Placeholder -->
+                            <div id="formAlert" class="mt-4"></div>
+                        </form>
+                    </div>
+                </div>
+                
+                <!-- Map & FAQ -->
+                <div class="col-lg-6">
+                    <!-- Map -->
+                    <div class="mb-5">
+                        <h3 class="mb-4 section-title">Lokasi Kami</h3>
+                        <div class="map-container" id="map">
+                            <div class="map-placeholder">
+                                <i class="bi bi-geo-alt fs-1 mb-3"></i>
+                                <h5>Peta Lokasi</h5>
+                                <p class="mb-2">Jl. Teknologi No. 123, Kota Pendidikan</p>
+                                <small class="text-light">(Dalam implementasi nyata, ini adalah embed Google Maps)</small>
+                            </div>
+                        </div>
+                        <div class="mt-4">
+                            <a href="https://maps.google.com" target="_blank" class="btn btn-outline-primary px-4">
+                                <i class="bi bi-arrow-up-right-square me-2"></i>Buka di Google Maps
+                            </a>
+                            <a href="https://maps.app.goo.gl" target="_blank" class="btn btn-outline-success px-4 ms-2">
+                                <i class="bi bi-phone me-2"></i>Buka di Maps App
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- FAQ -->
+                    <div>
+                        <h3 class="mb-4 section-title">Pertanyaan Umum</h3>
+                        <div class="accordion" id="faqAccordion">
+                            <!-- FAQ 1 -->
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                                        <i class="bi bi-clock me-2"></i>Berapa lama waktu respon untuk email?
+                                    </button>
+                                </h2>
+                                <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                                    <div class="accordion-body">
+                                        Kami merespon email dalam 1x24 jam di hari kerja. Untuk WhatsApp, biasanya dalam 2 jam di jam operasional.
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- FAQ 2 -->
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                                        <i class="bi bi-building me-2"></i>Bisakah datang langsung ke kantor?
+                                    </button>
+                                </h2>
+                                <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                    <div class="accordion-body">
+                                        Ya, Anda bisa datang langsung ke alamat kami. Disarankan membuat janji terlebih dahulu via WhatsApp untuk memastikan ada staff yang bisa melayani.
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- FAQ 3 -->
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                                        <i class="bi bi-chat-dots me-2"></i>Apakah ada konsultasi gratis?
+                                    </button>
+                                </h2>
+                                <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                    <div class="accordion-body">
+                                        Ya, kami menyediakan konsultasi karir gratis via WhatsApp atau datang langsung. Durasi 30 menit dengan konsultan kami.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Quick Links -->
+                        <div class="mt-5">
+                            <h5 class="mb-3">Link Cepat</h5>
+                            <div class="d-flex flex-wrap gap-2">
+                                <a href="pendaftaran.html" class="btn btn-outline-primary btn-sm px-3">
+                                    <i class="bi bi-pencil-square me-1"></i> Form Pendaftaran
+                                </a>
+                                <a href="courses.html" class="btn btn-outline-success btn-sm px-3">
+                                    <i class="bi bi-book me-1"></i> Daftar Kelas
+                                </a>
+                                <a href="services.html" class="btn btn-outline-info btn-sm px-3">
+                                    <i class="bi bi-info-circle me-1"></i> Layanan
+                                </a>
+                                <a href="faq.html" class="btn btn-outline-warning btn-sm px-3">
+                                    <i class="bi bi-question-circle me-1"></i> FAQ Lainnya
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/6281234567890" target="_blank" class="floating-button">
+        <i class="bi bi-whatsapp"></i>
+    </a>
+
+    <!-- Footer -->
+    <footer class="footer pt-5">
+        <div class="container">
+            <div class="row g-4 pb-5">
+                <div class="col-lg-4">
+                    <div class="mb-4">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="bg-white rounded-circle p-2 me-2">
+                                <i class="bi bi-lightbulb-fill text-danger fs-4"></i>
+                            </div>
+                            <h3 class="fw-bold mb-0 text-white">TikTakTop</h3>
+                        </div>
+                        <p class="text-light mb-4 opacity-75">Platform belajar teknologi terdepan dengan metode praktis dan mentor berpengalaman.</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-2 col-md-4">
+                    <h5 class="fw-bold mb-4 text-white">Menu</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="index.html" class="text-light text-decoration-none opacity-75 hover-opacity-100">Home</a></li>
+                        <li class="mb-2"><a href="about.html" class="text-light text-decoration-none opacity-75 hover-opacity-100">About</a></li>
+                        <li class="mb-2"><a href="courses.html" class="text-light text-decoration-none opacity-75 hover-opacity-100">Kelas</a></li>
+                        <li class="mb-2"><a href="contact.html" class="text-light text-decoration-none opacity-75 hover-opacity-100">Kontak</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-3 col-md-4">
+                    <h5 class="fw-bold mb-4 text-white">Kontak</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-3 d-flex align-items-center">
+                            <i class="bi bi-geo-alt me-2 text-danger"></i>
+                            <span class="text-light opacity-75">Jl. Teknologi No. 123, Kota Pendidikan</span>
+                        </li>
+                        <li class="mb-3 d-flex align-items-center">
+                            <i class="bi bi-telephone me-2 text-danger"></i>
+                            <span class="text-light opacity-75">+62 812-3456-7890</span>
+                        </li>
+                        <li class="mb-3 d-flex align-items-center">
+                            <i class="bi bi-envelope me-2 text-danger"></i>
+                            <span class="text-light opacity-75">info@tiktaktop.com</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-3 col-md-4">
+                    <h5 class="fw-bold mb-4 text-white">Follow Kami</h5>
+                    <div class="d-flex gap-2 mb-4">
+                        <a href="#" class="social-icon bg-instagram" title="Instagram">
+                            <i class="bi bi-instagram"></i>
+                        </a>
+                        <a href="#" class="social-icon bg-facebook" title="Facebook">
+                            <i class="bi bi-facebook"></i>
+                        </a>
+                        <a href="#" class="social-icon bg-youtube" title="YouTube">
+                            <i class="bi bi-youtube"></i>
+                        </a>
+                        <a href="#" class="social-icon bg-linkedin" title="LinkedIn">
+                            <i class="bi bi-linkedin"></i>
+                        </a>
+                        <a href="#" class="social-icon bg-twitter" title="Twitter">
+                            <i class="bi bi-twitter"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-top border-white border-opacity-25 pt-4">
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        <p class="mb-0 text-light opacity-75">&copy; 2024 Tik Tak Top Course. All rights reserved.</p>
+                    </div>
+                    <div class="col-md-6 text-md-end">
+                        <a href="#" class="text-light text-decoration-none opacity-75 me-3">Privacy Policy</a>
+                        <a href="#" class="text-light text-decoration-none opacity-75">Terms of Service</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="btn btn-primary rounded-circle p-3 position-fixed shadow-lg" style="bottom: 2rem; right: 2rem; z-index: 1000; background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%); border: none;">
+        <i class="bi bi-arrow-up"></i>
+    </button>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Form Script -->
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+        
+        // Form submission handler
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const submitBtn = this.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerHTML;
+            const alertDiv = document.getElementById('formAlert');
+            
+            // Show loading
+            submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm"></span> Mengirim...';
+            submitBtn.disabled = true;
+            
+            // Simulate API call (2 seconds)
+            setTimeout(() => {
+                // Success message
+                alertDiv.innerHTML = `
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        <h4 class="alert-heading"><i class="bi bi-check-circle-fill"></i> Pesan Terkirim!</h4>
+                        <p>Terima kasih telah menghubungi kami. Tim kami akan merespon dalam 1x24 jam.</p>
+                        <hr>
+                        <p class="mb-0">Anda juga bisa langsung menghubungi kami via WhatsApp untuk respon lebih cepat.</p>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                    </div>
+                `;
+                
+                // Reset form
+                this.reset();
+                
+                // Reset button
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+                
+                // Scroll to alert
+                alertDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                
+            }, 2000);
+        });
+        
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const targetId = this.getAttribute('href');
+                if (targetId !== '#') {
+                    e.preventDefault();
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 120,
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            });
+        });
+        
+        // Animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-on-scroll');
+                }
+            });
+        }, observerOptions);
+        
+        // Observe elements for animation
+        document.querySelectorAll('.contact-card, .contact-form, .map-container').forEach(el => {
+            observer.observe(el);
+        });
+        
+        // Back to top button
+        const backToTopButton = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.style.display = 'block';
+                setTimeout(() => {
+                    backToTopButton.style.opacity = '1';
+                    backToTopButton.style.transform = 'translateY(0)';
+                }, 10);
+            } else {
+                backToTopButton.style.opacity = '0';
+                backToTopButton.style.transform = 'translateY(20px)';
+                setTimeout(() => {
+                    if (window.pageYOffset <= 300) {
+                        backToTopButton.style.display = 'none';
+                    }
+                }, 300);
+            }
+        });
+        
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Ripple effect for buttons
+        document.querySelectorAll('.btn-about').forEach(button => {
+            button.addEventListener('click', function(e) {
+                const ripple = document.createElement('span');
+                const rect = this.getBoundingClientRect();
+                const size = Math.max(rect.width, rect.height);
+                const x = e.clientX - rect.left - size / 2;
+                const y = e.clientY - rect.top - size / 2;
+                
+                ripple.style.width = ripple.style.height = size + 'px';
+                ripple.style.left = x + 'px';
+                ripple.style.top = y + 'px';
+                ripple.classList.add('ripple');
+                
+                this.appendChild(ripple);
+                
+                setTimeout(() => {
+                    ripple.remove();
+                }, 600);
+            });
+        });
+    </script>
+</body>
+</html>
