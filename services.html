@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="id" data-bs-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Layanan - Tik Tak Top Course</title>
+    
+    <!-- Bootstrap 5 CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    
+    <!-- Font Google -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Cache Control -->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <meta name="version" content="1.1.20251219.2">
+    
+    <!-- Animate CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    
+    <!-- Link ke CSS External -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        :root {
+            --primary-color: #e74c3c;
+            --secondary-color: #8e44ad;
+            --accent-color: #4cc9f0;
+            --gradient-primary: linear-gradient(135deg, #e74c3c 0%, #8e44ad 100%);
+            --gradient-secondary: linear-gradient(135deg, #4cc9f0 0%, #e74c3c 100%);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+            background: #f8f9fa;
+            color: #333;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+        }
+        
+        /* Navbar Enhanced */
+        .navbar {
+            background: rgba(255, 255, 255, 0.95) !important;
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(67, 97, 238, 0.1);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            padding: 1rem 0;
+        }
+        
+        .navbar.scrolled {
+            padding: 0.5rem 0;
+            box-shadow: 0 4px 20px rgba(67, 97, 238, 0.1);
+        }
+        
+        .navbar-brand {
+            font-weight: 800;
+            font-size: 1.8rem !important;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .nav-link {
+            font-weight: 500;
+            margin: 0 0.5rem;
+            padding: 0.5rem 1rem !important;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            color: #495057 !important;
+        }
+        
+        .nav-link:hover {
+            background: rgba(67, 97, 238, 0.1);
+            transform: translateY(-2px);
+            color: var(--primary-color) !important;
+        }
+        
+        .nav-link.active {
+            background: var(--gradient-primary);
+            color: white !important;
+        }
+        
+        .about-hero {
+            background: linear-gradient(135deg, rgba(67, 97, 238, 0.95) 0%, rgba(58, 12, 163, 0.9) 100%),
+                        url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1171&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 80px 0 40px;
+            margin-top: 0px;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .about-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".15" fill="white"/><path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".3" fill="white"/><path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" opacity=".5" fill="white"/></svg>');
+            background-size: cover;
+            background-position: bottom;
+            opacity: 0.2;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .cert-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(67, 97, 238, 0.3);
+        }
+        
+        .btn-about {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            font-weight: 600;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn-about:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .btn-about .ripple {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: scale(0);
+            animation: ripple 0.6s linear;
+            pointer-events: none;
+        }
+        
+        @keyframes ripple {
+            to {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+        
+        #backToTop {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.3s ease;
+        }
+        
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            font-size: 2rem;
+        }
+        
+        .service-card {
+            border: none;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-radius: 16px;
+            height: 100%;
+            transition: all 0.3s ease;
+            overflow: hidden;
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        
+        .pricing-card {
+            border: 2px solid transparent;
+            transition: all 0.3s;
+            height: 100%;
+        }
+        
+        .pricing-card.popular {
+            border-color: var(--primary-color);
+            position: relative;
+            transform: scale(1.05);
+            z-index: 1;
+        }
+        
+        .pricing-card.popular::before {
+            content: "TERPOPULER";
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--primary-color);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+        
+        .accordion-button:not(.collapsed) {
+            background-color: rgba(231, 76, 60, 0.1);
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+        
+        .feature-badge {
+            display: inline-block;
+            padding: 5px 12px;
+            margin: 3px;
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 20px;
+            font-size: 0.85rem;
+        }
+        
+        .cta-section {
+            background: linear-gradient(135deg, rgba(67, 97, 238, 0.95) 0%, rgba(58, 12, 163, 0.9) 100%),
+                        url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1171&q=80');
+            background-size: cover;
+            background-position: center;
+            color: #000000;
+            padding: 80px 0;
+            margin-top: 50px;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".15" fill="white"/><path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".3" fill="white"/><path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" opacity=".5" fill="white"/></svg>');
+            background-size: cover;
+            background-position: bottom;
+            opacity: 0.2;
+        }
+        
+        footer {
+            background: #212529;
+            color: white;
+        }
+        
+        @media (max-width: 768px) {
+            .about-hero {
+                padding: 180px 0 60px;
+                text-align: center;
+                background-attachment: scroll;
+            }
+            
+            .hero-content {
+                text-align: center;
+            }
+            
+            .hero-content .col-lg-6:last-child {
+                margin-top: 30px;
+            }
+            
+            .pricing-card.popular {
+                transform: scale(1);
+                margin: 20px 0;
+            }
+            
+            .pricing-card.popular::before {
+                top: -10px;
+                font-size: 0.7rem;
+                padding: 4px 10px;
+            }
+        }
+        
+    </style>
+</head>
+<body>
+    <!-- Navbar (Sama dengan index.html) -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <div class="bg-gradient-primary rounded-circle p-2 me-3 shadow-sm">
+                    <i class="bi bi-lightbulb-fill text-white fs-4"></i>
+                </div>
+                <span class="fw-bold">TikTakTop</span>
+            </a>
+            
+            <!-- Mobile Menu Toggle -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <!-- Navbar Menu -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-lg-center">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">
+                            <i class="bi bi-house-door me-2"></i> Home
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">
+                            <i class="bi bi-info-circle me-2"></i> About
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle d-flex align-items-center active" href="#" data-bs-toggle="dropdown">
+                            <i class="bi bi-stack me-2"></i> Layanan
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end shadow-lg border-0 rounded-3">
+                            <li><a class="dropdown-item py-3 active" href="services.html">
+                                <i class="bi bi-info-square me-2 text-primary"></i> Informasi Layanan
+                            </a></li>
+                            <li><a class="dropdown-item py-3" href="pendaftaran.html">
+                                <i class="bi bi-pencil-square me-2 text-primary"></i> Pendaftaran
+                            </a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">
+                            <i class="bi bi-chat-dots me-2"></i> Kontak
+                        </a>
+                    </li>
+                    <li class="nav-item ms-lg-3">
+                        <a href="pendaftaran.html" class="btn btn-primary btn-lg px-4">
+                            <i class="bi bi-rocket-takeoff me-2"></i> Mulai Belajar
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="about-hero">
+        <div class="container">
+            <div class="row align-items-center hero-content">
+                <div class="col-lg-8 animate__animated animate__fadeInLeft">
+                    <span class="badge bg-white text-primary fs-6 px-4 py-2 mb-3 shadow-sm">
+                        <i class="bi bi-stack me-2"></i> Layanan Kami
+                    </span>
+                    <h1 class="display-4 fw-bold mb-4">Layanan Terbaik untuk Pendidikan Digital</h1>
+                    <p class="lead mb-4">Dapatkan akses ke berbagai program pembelajaran berkualitas tinggi dengan dukungan mentor profesional dan kurikulum terstruktur untuk kesuksesan karir Anda.</p>
+                    <div class="d-flex flex-wrap gap-3">
+                        <a href="#layanan-unggulan" class="btn btn-primary btn-lg px-4 py-3 btn-about">
+                            <i class="bi bi-info-square me-2"></i> Lihat Layanan
+                        </a>
+                        <a href="pendaftaran.html" class="btn btn-outline-primary btn-lg px-4 py-3 btn-about">
+                            <i class="bi bi-pencil-square me-2"></i> Daftar Sekarang
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-4 text-center animate__animated animate__fadeInRight">
+                    <div class="bg-white rounded-4 p-4 shadow-lg">
+                        <i class="bi bi-award display-1 text-primary mb-3"></i>
+                        <h5 class="fw-bold">Kualitas Terjamin</h5>
+                        <p class="text-muted mb-0">Program Sertifikasi Resmi</p>
+                        <div class="mt-3">
+                            <span class="cert-badge">
+                                <i class="bi bi-check-circle-fill"></i>
+                                <span>100% Job Ready</span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Informasi Layanan -->
+    <section id="layanan-unggulan" class="py-5" style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); padding-top: 8rem !important; margin-top: 2rem; position: relative; z-index: 2; border-top: 5px solid var(--primary-color);">
+        <div class="container">
+            <h2 class="text-center mb-5" style="color: #333; font-size: 2.5rem; font-weight: 700;">Informasi Layanan</h2>
+
+            <div class="row g-4 justify-content-center">
+                <!-- Layanan 1: Informasi -->
+                <div class="col-md-6">
+                    <div class="card service-card" style="border: 2px solid #007bff; box-shadow: 0 10px 30px rgba(0,123,255,0.2);">
+                        <div class="card-body p-4">
+                            <div class="service-icon bg-primary text-white mb-3">
+                                <i class="bi bi-info-circle"></i>
+                            </div>
+                            <h4 class="card-title fw-bold mb-3">Informasi</h4>
+                            <p class="card-text mb-4">Dapatkan informasi lengkap tentang layanan kami, jadwal, dan persyaratan yang tersedia.</p>
+                            <ul class="list-unstyled">
+                                <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i> Informasi lengkap layanan</li>
+                                <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i> Jadwal dan waktu operasional</li>
+                                <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i> Biaya dan metode pembayaran</li>
+                                <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i> Persyaratan dan ketentuan</li>
+                            </ul>
+                        </div>
+                        <div class="card-footer bg-transparent text-center border-top-0">
+                            <a href="contact.html" class="btn btn-outline-primary">Hubungi Kami</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Layanan 2: Pendaftaran -->
+                <div class="col-md-6">
+                    <div class="card service-card" style="border: 2px solid #28a745; box-shadow: 0 10px 30px rgba(40,167,69,0.2);">
+                        <div class="card-body p-4">
+                            <div class="service-icon bg-success text-white mb-3">
+                                <i class="bi bi-pencil-square"></i>
+                            </div>
+                            <h4 class="card-title fw-bold mb-3">Pendaftaran</h4>
+                            <p class="card-text mb-4">Proses pendaftaran yang mudah dan cepat untuk bergabung dengan layanan kami.</p>
+                            <ul class="list-unstyled">
+                                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Pendaftaran online 24/7</li>
+                                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Konfirmasi instan</li>
+                                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Panduan pembayaran</li>
+                                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Dukungan customer service</li>
+                            </ul>
+                        </div>
+                        <div class="card-footer bg-transparent text-center border-top-0">
+                            <a href="pendaftaran.html" class="btn btn-outline-success">Daftar Sekarang</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="cta-section">
+        <div class="container text-center" style="position: relative; z-index: 1;">
+            <h2 class="mb-4 gradient-text">Siap Memulai Perjalanan Anda?</h2>
+            <p class="gradient-text">Bergabunglah dengan komunitas kami dan dapatkan layanan terbaik untuk kebutuhan Anda.</p>
+            <a href="pendaftaran.html" class="btn btn-primary btn-lg me-3 mb-3">
+                <i class="bi bi-pencil-square"></i> Daftar Sekarang
+            </a>
+            <a href="contact.html" class="btn btn-outline-primary btn-lg mb-3">
+                <i class="bi bi-chat-dots"></i> Hubungi Kami
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer pt-5">
+        <div class="container">
+            <div class="row g-4 pb-5">
+                <div class="col-lg-4">
+                    <div class="mb-4">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="bg-white rounded-circle p-2 me-2">
+                                <i class="bi bi-lightbulb-fill text-primary fs-4"></i>
+                            </div>
+                            <h3 class="fw-bold mb-0 text-white">TikTakTop</h3>
+                        </div>
+                        <p class="text-light mb-4 opacity-75">Platform belajar teknologi terdepan dengan metode praktis dan mentor berpengalaman.</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-2 col-md-4">
+                    <h5 class="fw-bold mb-4 text-white">Menu</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="index.html" class="text-light text-decoration-none opacity-75 hover-opacity-100">Home</a></li>
+                        <li class="mb-2"><a href="about.html" class="text-light text-decoration-none opacity-75 hover-opacity-100">About</a></li>
+                        <li class="mb-2"><a href="courses.html" class="text-light text-decoration-none opacity-75 hover-opacity-100">Kelas</a></li>
+                        <li class="mb-2"><a href="contact.html" class="text-light text-decoration-none opacity-75 hover-opacity-100">Kontak</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-3 col-md-4">
+                    <h5 class="fw-bold mb-4 text-white">Kontak</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-3 d-flex align-items-center">
+                            <i class="bi bi-geo-alt me-2 text-primary"></i>
+                            <span class="text-light opacity-75">Jl. Teknologi No. 123, Kota Pendidikan</span>
+                        </li>
+                        <li class="mb-3 d-flex align-items-center">
+                            <i class="bi bi-telephone me-2 text-primary"></i>
+                            <span class="text-light opacity-75">+62 812-3456-7890</span>
+                        </li>
+                        <li class="mb-3 d-flex align-items-center">
+                            <i class="bi bi-envelope me-2 text-primary"></i>
+                            <span class="text-light opacity-75">info@tiktaktop.com</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-3 col-md-4">
+                    <h5 class="fw-bold mb-4 text-white">Follow Kami</h5>
+                    <div class="d-flex gap-2 mb-4">
+                        <a href="#" class="social-icon" title="Instagram">
+                            <i class="bi bi-instagram"></i>
+                        </a>
+                        <a href="#" class="social-icon" title="Facebook">
+                            <i class="bi bi-facebook"></i>
+                        </a>
+                        <a href="#" class="social-icon" title="YouTube">
+                            <i class="bi bi-youtube"></i>
+                        </a>
+                        <a href="#" class="social-icon" title="LinkedIn">
+                            <i class="bi bi-linkedin"></i>
+                        </a>
+                        <a href="#" class="social-icon" title="Twitter">
+                            <i class="bi bi-twitter"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-top border-white border-opacity-25 pt-4">
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        <p class="mb-0 text-light opacity-75">&copy; 2024 Tik Tak Top Course. All rights reserved.</p>
+                    </div>
+                    <div class="col-md-6 text-md-end">
+                        <a href="#" class="text-light text-decoration-none opacity-75 me-3">Privacy Policy</a>
+                        <a href="#" class="text-light text-decoration-none opacity-75">Terms of Service</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="btn btn-primary rounded-circle p-3 position-fixed shadow-lg" style="bottom: 2rem; right: 2rem; z-index: 1000; background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%); border: none;">
+        <i class="bi bi-arrow-up"></i>
+    </button>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Script untuk smooth scroll -->
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+        
+        // Smooth scroll untuk anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const targetId = this.getAttribute('href');
+                if (targetId !== '#') {
+                    e.preventDefault();
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 100,
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            });
+        });
+        
+        // Auto close FAQ ketika yang lain dibuka
+        document.querySelectorAll('.accordion-button').forEach(button => {
+            button.addEventListener('click', function() {
+                const target = this.getAttribute('data-bs-target');
+                const allButtons = document.querySelectorAll('.accordion-button:not([data-bs-target="' + target + '"])');
+                
+                allButtons.forEach(btn => {
+                    if (!btn.classList.contains('collapsed')) {
+                        btn.click();
+                    }
+                });
+            });
+        });
+        
+        // Back to top button
+        const backToTopButton = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.style.display = 'block';
+                setTimeout(() => {
+                    backToTopButton.style.opacity = '1';
+                    backToTopButton.style.transform = 'translateY(0)';
+                }, 10);
+            } else {
+                backToTopButton.style.opacity = '0';
+                backToTopButton.style.transform = 'translateY(20px)';
+                setTimeout(() => {
+                    if (window.pageYOffset <= 300) {
+                        backToTopButton.style.display = 'none';
+                    }
+                }, 300);
+            }
+        });
+        
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Ripple effect for buttons
+        document.querySelectorAll('.btn-about').forEach(button => {
+            button.addEventListener('click', function(e) {
+                const ripple = document.createElement('span');
+                const rect = this.getBoundingClientRect();
+                const size = Math.max(rect.width, rect.height);
+                const x = e.clientX - rect.left - size / 2;
+                const y = e.clientY - rect.top - size / 2;
+                
+                ripple.style.width = ripple.style.height = size + 'px';
+                ripple.style.left = x + 'px';
+                ripple.style.top = y + 'px';
+                ripple.classList.add('ripple');
+                
+                this.appendChild(ripple);
+                
+                setTimeout(() => {
+                    ripple.remove();
+                }, 600);
+            });
+        });
+    </script>
+</body>
+</html>
