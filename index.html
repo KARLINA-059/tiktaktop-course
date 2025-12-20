@@ -1,0 +1,1070 @@
+<!DOCTYPE html>
+<html lang="id" data-bs-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tik Tak Top Course - Belajar Teknologi Terbaik</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Belajar teknologi terbaik dengan kursus praktis dari mentor berpengalaman. Mulai karir digital Anda di sini!">
+    <meta name="keywords" content="kursus, teknologi, programming, web development, data science, UI/UX design">
+    <meta name="author" content="TikTakTop Course">
+    <meta property="og:title" content="Tik Tak Top Course - Belajar Teknologi Terbaik">
+    <meta property="og:description" content="Raih masa depan cerah dengan skill digital">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80">
+    <meta property="og:url" content="https://tiktaktop.com">
+    <meta name="twitter:card" content="summary_large_image">
+    
+    <!-- Cache Control -->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <meta name="version" content="1.1.20251219">
+    
+    <!-- Bootstrap 5 CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    
+    <!-- Font Google -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- AOS (Animate On Scroll) -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Link ke CSS External -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    
+    <style>
+        :root {
+            --primary-color: #e74c3c;
+            --secondary-color: #8e44ad;
+            --accent-color: #4cc9f0;
+            --gradient-primary: linear-gradient(135deg, #e74c3c 0%, #8e44ad 100%);
+            --gradient-secondary: linear-gradient(135deg, #4cc9f0 0%, #e74c3c 100%);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+            background: #f8f9fa;
+            color: #333;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+        }
+        
+        /* Navbar Enhanced */
+        .navbar {
+            background: rgba(255, 255, 255, 0.95) !important;
+            backdrop-filter: blur(10px);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            padding: 1rem 0;
+        }
+        
+        .navbar.scrolled {
+            padding: 0.5rem 0;
+            box-shadow: 0 4px 20px rgba(67, 97, 238, 0.1);
+        }
+        
+        .navbar-brand {
+            font-weight: 800;
+            font-size: 1.8rem !important;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .nav-link {
+            font-weight: 500;
+            margin: 0 0.5rem;
+            padding: 0.5rem 1rem !important;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            color: #495057 !important;
+        }
+        
+        .nav-link:hover {
+            background: rgba(67, 97, 238, 0.1);
+            transform: translateY(-2px);
+            color: var(--primary-color) !important;
+        }
+        
+        .nav-link.active {
+            background: var(--gradient-primary);
+            color: white !important;
+        }
+        
+        .dropdown-menu {
+            background: white;
+            border: none;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+        }
+        
+        .dropdown-item:hover {
+            background: rgba(67, 97, 238, 0.1);
+            color: var(--primary-color);
+        }
+        
+        /* Hero Section Redesigned */
+        .hero-section {
+            min-height: 95vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding-top: 50px;
+        }
+        
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(67, 97, 238, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(76, 201, 240, 0.1) 0%, transparent 50%);
+        }
+        
+        .hero-title {
+            font-size: 3.5rem;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .hero-title .highlight {
+            position: relative;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: textShine 3s ease-in-out infinite;
+        }
+        
+        @keyframes textShine {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
+        /* Stats Counter */
+        .stat-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+            border: 1px solid rgba(67, 97, 238, 0.1);
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(67, 97, 238, 0.15);
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        /* Enhanced Course Cards */
+        .course-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(67, 97, 238, 0.1);
+            height: 100%;
+            position: relative;
+        }
+        
+        .course-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient-primary);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .course-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 25px 50px rgba(67, 97, 238, 0.15);
+            border-color: var(--primary-color);
+        }
+        
+        .course-card:hover::before {
+            opacity: 1;
+        }
+        
+        .course-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: white;
+            background: var(--gradient-primary);
+        }
+        
+        .progress-circle {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: conic-gradient(var(--primary-color) 83%, #e9ecef 0%);
+        }
+        
+        .progress-circle::before {
+            content: attr(data-progress) '%';
+            position: absolute;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+        
+        /* Testimonial Cards */
+        .testimonial-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(67, 97, 238, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(67, 97, 238, 0.1);
+        }
+        
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: -20px;
+            right: 20px;
+            font-size: 8rem;
+            color: rgba(67, 97, 238, 0.05);
+            font-family: serif;
+            line-height: 1;
+        }
+        
+        /* Newsletter Section */
+        .newsletter-section {
+            background: var(--gradient-primary);
+            position: relative;
+            overflow: hidden;
+            padding: 4rem 0;
+        }
+        
+        .newsletter-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 70% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+        }
+        
+        /* Footer Enhanced */
+        .footer {
+            background: #1a1a2e;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient-primary);
+        }
+        
+        .social-icon {
+            width: 45px;
+            height: 45px;
+            border-radius: 12px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .social-icon:hover {
+            background: var(--primary-color);
+            transform: translateY(-3px);
+        }
+        
+        /* Buttons */
+        .btn-primary {
+            background: var(--gradient-primary);
+            border: none;
+            padding: 0.8rem 2rem;
+            border-radius: 12px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(67, 97, 238, 0.3);
+        }
+        
+        .btn-primary::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 5px;
+            height: 5px;
+            background: rgba(255, 255, 255, 0.5);
+            opacity: 0;
+            border-radius: 100%;
+            transform: scale(1, 1) translate(-50%);
+            transform-origin: 50% 50%;
+        }
+        
+        .btn-primary:focus:not(:active)::after {
+            animation: ripple 1s ease-out;
+        }
+        
+        .btn-outline-primary {
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            font-weight: 600;
+            padding: 0.8rem 2rem;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-outline-primary:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(67, 97, 238, 0.2);
+        }
+        
+        /* Animations */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        @keyframes ripple {
+            0% {
+                transform: scale(0, 0);
+                opacity: 0.5;
+            }
+            100% {
+                transform: scale(20, 20);
+                opacity: 0;
+            }
+        }
+        
+        .floating-element {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .hero-section {
+                min-height: 80vh;
+                padding-top: 80px;
+            }
+            
+            .stat-card {
+                margin-bottom: 1rem;
+            }
+        }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary-color);
+            border-radius: 5px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--secondary-color);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <div class="bg-gradient-primary rounded-circle p-2 me-3 shadow-sm">
+                    <i class="bi bi-lightbulb-fill text-white fs-4"></i>
+                </div>
+                <span class="fw-bold">TikTakTop</span>
+            </a>
+            
+            <!-- Mobile Menu Toggle -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <!-- Navbar Menu -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-lg-center">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">
+                            <i class="bi bi-house-door me-2"></i> Home
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">
+                            <i class="bi bi-info-circle me-2"></i> About
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" data-bs-toggle="dropdown">
+                            <i class="bi bi-stack me-2"></i> Layanan
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end shadow-lg border-0 rounded-3">
+                            <li><a class="dropdown-item py-3" href="services.html">
+                                <i class="bi bi-info-square me-2 text-primary"></i> Informasi Layanan
+                            </a></li>
+                            <li><a class="dropdown-item py-3" href="pendaftaran.html">
+                                <i class="bi bi-pencil-square me-2 text-primary"></i> Pendaftaran
+                            </a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">
+                            <i class="bi bi-chat-dots me-2"></i> Kontak
+                        </a>
+                    </li>
+                    <li class="nav-item ms-lg-3">
+                        <a href="pendaftaran.html" class="btn btn-primary btn-lg px-4">
+                            <i class="bi bi-rocket-takeoff me-2"></i> Mulai Belajar
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-5 mb-lg-0" data-aos="fade-right" data-aos-duration="1000">
+                    <div class="mb-4">
+                        <span class="badge bg-gradient-primary bg-opacity-10 text-primary fs-6 px-4 py-2 mb-3">
+                            <i class="bi bi-star-fill me-2"></i> Kursus Terbaik 2024
+                        </span>
+                        <h1 class="hero-title fw-bold mb-4">
+                            Raih <span class="highlight">Masa Depan Cerah</span> dengan Skill Digital
+                        </h1>
+                        <p class="lead text-muted mb-4">
+                            Bergabung dengan <strong class="text-primary">2,500+ siswa</strong> yang sudah sukses memulai karir di bidang teknologi melalui metode pembelajaran praktis dan mentor berpengalaman.
+                        </p>
+                        
+                        <div class="d-flex flex-wrap gap-3 mb-5">
+                            <a href="pendaftaran.html" class="btn btn-primary btn-lg px-4 py-3">
+                                <i class="bi bi-pencil-square me-2"></i> Daftar Sekarang
+                                <span class="badge bg-white text-primary ms-2">Gratis Trial</span>
+                            </a>
+                            <a href="#courses" class="btn btn-outline-primary btn-lg px-4 py-3">
+                                <i class="bi bi-play-circle me-2"></i> Lihat Demo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6" data-aos="fade-left" data-aos-duration="1000">
+                    <div class="position-relative">
+                        <div class="card border-0 shadow-lg rounded-4 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                                 class="img-fluid" alt="Students Learning" style="height: 400px; object-fit: cover;">
+                            <div class="card-img-overlay d-flex align-items-end p-4">
+                                <div class="bg-dark bg-opacity-75 rounded-3 p-3 w-100">
+                                    <p class="text-white mb-1">
+                                        <i class="bi bi-quote me-2 text-primary"></i> "Setelah ikut kursus ini, karir saya berubah 180°"
+                                    </p>
+                                    <small class="text-light">- Andi, Web Developer</small>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Floating Elements -->
+                        <div class="position-absolute top-0 start-0 translate-middle floating-element d-none d-lg-block">
+                            <div class="bg-primary rounded-circle p-3 shadow-lg">
+                            </div>
+                        </div>
+                        <div class="position-absolute bottom-0 end-0 translate-middle floating-element d-none d-lg-block" style="animation-delay: 1s;">
+                            <div class="bg-success rounded-circle p-3 shadow-lg">
+                                <i class="bi bi-graph-up-arrow text-white fs-4"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Stats Section -->
+            <div class="row mt-5 pt-5" data-aos="fade-up" data-aos-delay="200">
+                <div class="col-md-4">
+                    <div class="stat-card text-center">
+                        <h3 class="stat-number mb-2" data-target="50">0</h3>
+                        <p class="text-muted mb-0">Mentor Profesional</p>
+                        <small class="text-primary">+10 Tahun Pengalaman</small>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="stat-card text-center">
+                        <h3 class="stat-number mb-2" data-target="2500">0</h3>
+                        <p class="text-muted mb-0">Siswa Aktif</p>
+                        <small class="text-primary">+500 Bergabung Bulan Ini</small>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="stat-card text-center">
+                        <h3 class="stat-number mb-2" data-target="98">0</h3>
+                        <p class="text-muted mb-0">Kepuasan Siswa</p>
+                        <small class="text-primary">Rating 4.9/5.0</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Courses Section -->
+    <section id="courses" class="py-5" style="background: #f8f9fa;">
+        <div class="container">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <span class="badge bg-gradient-primary bg-opacity-10 text-primary fs-6 px-4 py-2 mb-3">
+                    <i class="bi bi-trophy me-2"></i> Kelas Terpopuler
+                </span>
+                <h2 class="fw-bold mb-3">Pilih Jalur <span class="text-primary">Kariermu</span></h2>
+                <p class="text-muted col-lg-6 mx-auto">Kursus kami dirancang untuk membantu Anda menguasai skill yang paling dicari industri</p>
+            </div>
+            
+            <div class="row g-4">
+                <!-- Card 1 -->
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="course-card shadow-sm">
+                        <div class="card-body p-4">
+                            <div class="d-flex justify-content-between align-items-start mb-4">
+                                <div class="course-icon">
+                                    <i class="bi bi-code-slash"></i>
+                                </div>
+                                <span class="badge bg-primary rounded-pill px-3 py-2">🔥 Hot</span>
+                            </div>
+                            <h4 class="fw-bold mb-3">Full-Stack Web Development</h4>
+                            <p class="text-muted mb-4">Master HTML, CSS, JavaScript, React, dan Node.js. Bangun aplikasi web modern dari nol.</p>
+                            
+                            <div class="mb-4">
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <span class="text-muted">Progress</span>
+                                    <div class="progress-circle" data-progress="100"></div>
+                                </div>
+                                <div class="progress" style="height: 8px;">
+                                    <div class="progress-bar bg-primary" style="width: 100%"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="d-flex justify-content-between align-items-center border-top pt-4">
+                                <div>
+                                    <span class="badge bg-primary bg-opacity-10 text-primary me-2">Intermediate</span>
+                                    <span class="text-muted"><i class="bi bi-clock me-1"></i> 120 Jam</span>
+                                </div>
+                                <a href="#" class="btn btn-primary btn-sm px-3">
+                                    Detail <i class="bi bi-arrow-right ms-1"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Card 2 -->
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="course-card shadow-sm">
+                        <div class="card-body p-4">
+                            <div class="d-flex justify-content-between align-items-start mb-4">
+                                <div class="course-icon bg-success">
+                                    <i class="bi bi-bar-chart-line"></i>
+                                </div>
+                                <span class="badge bg-success rounded-pill px-3 py-2">📈 Trending</span>
+                            </div>
+                            <h4 class="fw-bold mb-3">Data Science & Analytics</h4>
+                            <p class="text-muted mb-4">Belajar Python, SQL, dan Machine Learning untuk analisis data dan kecerdasan bisnis.</p>
+                            
+                            <div class="mb-4">
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <span class="text-muted">Progress</span>
+                                    <div class="progress-circle" style="background: conic-gradient(#28a745 83%, #e9ecef 0%);" data-progress="83"></div>
+                                </div>
+                                <div class="progress" style="height: 8px;">
+                                    <div class="progress-bar bg-success" style="width: 83%"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="d-flex justify-content-between align-items-center border-top pt-4">
+                                <div>
+                                    <span class="badge bg-success bg-opacity-10 text-success me-2">Advanced</span>
+                                    <span class="text-muted"><i class="bi bi-clock me-1"></i> 90 Jam</span>
+                                </div>
+                                <a href="#" class="btn btn-success btn-sm px-3">
+                                    Detail <i class="bi bi-arrow-right ms-1"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Card 3 -->
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="course-card shadow-sm">
+                        <div class="card-body p-4">
+                            <div class="d-flex justify-content-between align-items-start mb-4">
+                                <div class="course-icon bg-warning">
+                                    <i class="bi bi-brush"></i>
+                                </div>
+                                <span class="badge bg-warning rounded-pill px-3 py-2">✨ New</span>
+                            </div>
+                            <h4 class="fw-bold mb-3">UI/UX Design</h4>
+                            <p class="text-muted mb-4">Desain antarmuka yang menarik dan user-friendly dengan Figma dan Adobe Creative Suite.</p>
+                            
+                            <div class="mb-4">
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <span class="text-muted">Progress</span>
+                                    <div class="progress-circle" style="background: conic-gradient(#ffc107 100%, #e9ecef 0%);" data-progress="100"></div>
+                                </div>
+                                <div class="progress" style="height: 8px;">
+                                    <div class="progress-bar bg-warning" style="width: 100%"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="d-flex justify-content-between align-items-center border-top pt-4">
+                                <div>
+                                    <span class="badge bg-warning bg-opacity-10 text-warning me-2">Beginner</span>
+                                    <span class="text-muted"><i class="bi bi-clock me-1"></i> 105 Jam</span>
+                                </div>
+                                <a href="#" class="btn btn-warning btn-sm px-3">
+                                    Detail <i class="bi bi-arrow-right ms-1"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- CTA Button -->
+            <div class="text-center mt-5" data-aos="fade-up">
+                <a href="courses.html" class="btn btn-outline-primary btn-lg px-5 py-3">
+                    <i class="bi bi-grid-3x3-gap me-2"></i> Lihat Semua Kelas
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="py-5 bg-white">
+        <div class="container">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <h2 class="fw-bold mb-3">Kenapa Memilih <span class="text-primary">TikTakTop?</span></h2>
+                <p class="text-muted col-lg-6 mx-auto">Keunggulan yang membuat kami berbeda dari kursus lainnya</p>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="text-center p-4">
+                        <div class="bg-primary bg-opacity-10 rounded-circle d-inline-flex align-items-center justify-content-center mb-4" style="width: 80px; height: 80px;">
+                            <i class="bi bi-person-video3 fs-2 text-primary"></i>
+                        </div>
+                        <h4 class="fw-bold mb-3">Mentor Berpengalaman</h4>
+                        <p class="text-muted mb-0">Belajar langsung dari praktisi yang sudah bekerja di perusahaan teknologi terkemuka.</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="text-center p-4">
+                        <div class="bg-primary bg-opacity-10 rounded-circle d-inline-flex align-items-center justify-content-center mb-4" style="width: 80px; height: 80px;">
+                            <i class="bi bi-briefcase fs-2 text-primary"></i>
+                        </div>
+                        <h4 class="fw-bold mb-3">Project Based Learning</h4>
+                        <p class="text-muted mb-0">Bangun portfolio nyata dengan mengerjakan project seperti di dunia kerja sebenarnya.</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="text-center p-4">
+                        <div class="bg-primary bg-opacity-10 rounded-circle d-inline-flex align-items-center justify-content-center mb-4" style="width: 80px; height: 80px;">
+                            <i class="bi bi-award fs-2 text-primary"></i>
+                        </div>
+                        <h4 class="fw-bold mb-3">Sertifikat Diakui</h4>
+                        <p class="text-muted mb-0">Dapatkan sertifikat yang diakui industri untuk meningkatkan nilai CV Anda.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonial Section -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <h2 class="fw-bold mb-3">Kata <span class="text-primary">Alumni</span></h2>
+                <p class="text-muted col-lg-6 mx-auto">Cerita sukses dari siswa yang sudah meraih karir impian</p>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="testimonial-card">
+                        <div class="d-flex align-items-center mb-4">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" 
+                                 class="rounded-circle me-3" width="60" height="60" alt="Budi Santoso">
+                            <div>
+                                <h5 class="fw-bold mb-0">Budi Santoso</h5>
+                                <p class="text-muted mb-0">Web Developer at Google</p>
+                            </div>
+                        </div>
+                        <div class="rating mb-3">
+                            <i class="bi bi-star-fill text-warning"></i>
+                            <i class="bi bi-star-fill text-warning"></i>
+                            <i class="bi bi-star-fill text-warning"></i>
+                            <i class="bi bi-star-fill text-warning"></i>
+                            <i class="bi bi-star-fill text-warning"></i>
+                        </div>
+                        <p class="text-muted mb-0">
+                            "Kursus ini sangat membantu karir saya. Materinya up-to-date dan mentor sangat supportive."
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="testimonial-card">
+                        <div class="d-flex align-items-center mb-4">
+                            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" 
+                                 class="rounded-circle me-3" width="60" height="60" alt="Sari Dewi">
+                            <div>
+                                <h5 class="fw-bold mb-0">Sari Dewi</h5>
+                                <p class="text-muted mb-0">Data Analyst at Tokopedia</p>
+                            </div>
+                        </div>
+                        <div class="rating mb-3">
+                            <i class="bi bi-star-fill text-warning"></i>
+                            <i class="bi bi-star-fill text-warning"></i>
+                            <i class="bi bi-star-fill text-warning"></i>
+                            <i class="bi bi-star-fill text-warning"></i>
+                            <i class="bi bi-star-fill text-warning"></i>
+                        </div>
+                        <p class="text-muted mb-0">
+                            "Project-based learning membuat saya siap kerja. Sekarang saya bekerja di perusahaan impian."
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="testimonial-card">
+                        <div class="d-flex align-items-center mb-4">
+                            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" 
+                                 class="rounded-circle me-3" width="60" height="60" alt="Ahmad Rizki">
+                            <div>
+                                <h5 class="fw-bold mb-0">Ahmad Rizki</h5>
+                                <p class="text-muted mb-0">UI/UX Designer at Traveloka</p>
+                            </div>
+                        </div>
+                        <div class="rating mb-3">
+                            <i class="bi bi-star-fill text-warning"></i>
+                            <i class="bi bi-star-fill text-warning"></i>
+                            <i class="bi bi-star-fill text-warning"></i>
+                            <i class="bi bi-star-fill text-warning"></i>
+                            <i class="bi bi-star-half text-warning"></i>
+                        </div>
+                        <p class="text-muted mb-0">
+                            "Portfolio yang saya buat selama kursus menjadi nilai tambah saat interview kerja."
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-5 text-white" style="background: var(--gradient-primary);">
+        <div class="container">
+            <div class="row align-items-center" data-aos="fade-up">
+                <div class="col-lg-8 mb-4 mb-lg-0">
+                    <h2 class="fw-bold mb-3">Siap Ubah Masa Depan Karirmu?</h2>
+                    <p class="mb-0 opacity-75">Bergabunglah dengan ribuan siswa yang sudah sukses memulai karir di bidang teknologi.</p>
+                </div>
+                <div class="col-lg-4 text-lg-end">
+                    <a href="pendaftaran.html" class="btn btn-light btn-lg px-5 py-3">
+                        <i class="bi bi-rocket-takeoff me-2"></i> Mulai Sekarang
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter-section">
+        <div class="container position-relative">
+            <div class="row align-items-center" data-aos="fade-up">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <h2 class="fw-bold mb-3 text-white">Dapatkan Update Terbaru</h2>
+                    <p class="mb-0 text-white-75">Berlangganan newsletter untuk mendapatkan info promo, materi gratis, dan tips karir.</p>
+                </div>
+                <div class="col-lg-6">
+                    <form class="d-flex gap-2">
+                        <input type="email" class="form-control form-control-lg rounded-pill" placeholder="Email Anda" required>
+                        <button type="submit" class="btn btn-light btn-lg px-4 rounded-pill">
+                            <i class="bi bi-send"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer pt-5">
+        <div class="container">
+            <div class="row g-4 pb-5">
+                <div class="col-lg-4">
+                    <div class="mb-4">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="bg-white rounded-circle p-2 me-2">
+                                <i class="bi bi-lightbulb-fill text-primary fs-4"></i>
+                            </div>
+                            <h3 class="fw-bold mb-0 text-white">TikTakTop</h3>
+                        </div>
+                        <p class="text-light mb-4 opacity-75">Platform belajar teknologi terdepan dengan metode praktis dan mentor berpengalaman.</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-2 col-md-4">
+                    <h5 class="fw-bold mb-4 text-white">Menu</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="index.html" class="text-light text-decoration-none opacity-75 hover-opacity-100">Home</a></li>
+                        <li class="mb-2"><a href="about.html" class="text-light text-decoration-none opacity-75 hover-opacity-100">About</a></li>
+                        <li class="mb-2"><a href="courses.html" class="text-light text-decoration-none opacity-75 hover-opacity-100">Kelas</a></li>
+                        <li class="mb-2"><a href="contact.html" class="text-light text-decoration-none opacity-75 hover-opacity-100">Kontak</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-3 col-md-4">
+                    <h5 class="fw-bold mb-4 text-white">Kontak</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-3 d-flex align-items-center">
+                            <i class="bi bi-geo-alt me-2 text-primary"></i>
+                            <span class="text-light opacity-75">Jl. Teknologi No. 123, Kota Pendidikan</span>
+                        </li>
+                        <li class="mb-3 d-flex align-items-center">
+                            <i class="bi bi-telephone me-2 text-primary"></i>
+                            <span class="text-light opacity-75">+62 812-3456-7890</span>
+                        </li>
+                        <li class="mb-3 d-flex align-items-center">
+                            <i class="bi bi-envelope me-2 text-primary"></i>
+                            <span class="text-light opacity-75">info@tiktaktop.com</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-3 col-md-4">
+                    <h5 class="fw-bold mb-4 text-white">Follow Kami</h5>
+                    <div class="d-flex gap-2 mb-4">
+                        <a href="#" class="social-icon" title="Instagram">
+                            <i class="bi bi-instagram"></i>
+                        </a>
+                        <a href="#" class="social-icon" title="Facebook">
+                            <i class="bi bi-facebook"></i>
+                        </a>
+                        <a href="#" class="social-icon" title="YouTube">
+                            <i class="bi bi-youtube"></i>
+                        </a>
+                        <a href="#" class="social-icon" title="LinkedIn">
+                            <i class="bi bi-linkedin"></i>
+                        </a>
+                        <a href="#" class="social-icon" title="Twitter">
+                            <i class="bi bi-twitter"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-top border-white border-opacity-25 pt-4">
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        <p class="mb-0 text-light opacity-75">&copy; 2024 Tik Tak Top Course. All rights reserved.</p>
+                    </div>
+                    <div class="col-md-6 text-md-end">
+                        <a href="#" class="text-light text-decoration-none opacity-75 me-3">Privacy Policy</a>
+                        <a href="#" class="text-light text-decoration-none opacity-75">Terms of Service</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="btn btn-primary rounded-circle p-3 position-fixed shadow-lg" style="bottom: 2rem; right: 2rem; z-index: 1000;">
+        <i class="bi bi-arrow-up"></i>
+    </button>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- AOS (Animate On Scroll) -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
+        
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+        
+        // Back to Top
+        const backToTop = document.getElementById('backToTop');
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 300) {
+                backToTop.style.opacity = '1';
+                backToTop.style.visibility = 'visible';
+            } else {
+                backToTop.style.opacity = '0';
+                backToTop.style.visibility = 'hidden';
+            }
+        });
+        
+        backToTop.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Counter animation
+        function animateCounter(element, target) {
+            let current = 0;
+            const increment = target / 100;
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    current = target;
+                    clearInterval(timer);
+                }
+                element.textContent = Math.floor(current) + (element.getAttribute('data-target').includes('%') ? '%' : '+');
+            }, 20);
+        }
+        
+        // Initialize counters when in view
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const counters = entry.target.querySelectorAll('.stat-number');
+                    counters.forEach(counter => {
+                        const target = parseInt(counter.getAttribute('data-target'));
+                        animateCounter(counter, target);
+                    });
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+        
+        observer.observe(document.querySelector('.hero-section'));
+        
+        // Ripple effect on buttons
+        document.addEventListener('click', function(e) {
+            if (e.target.classList.contains('btn-primary')) {
+                const btn = e.target;
+                const circle = document.createElement('span');
+                const diameter = Math.max(btn.clientWidth, btn.clientHeight);
+                const radius = diameter / 2;
+                
+                circle.style.width = circle.style.height = `${diameter}px`;
+                circle.style.left = `${e.clientX - btn.getBoundingClientRect().left - radius}px`;
+                circle.style.top = `${e.clientY - btn.getBoundingClientRect().top - radius}px`;
+                circle.classList.add('ripple');
+                
+                const ripple = btn.getElementsByClassName('ripple')[0];
+                if (ripple) {
+                    ripple.remove();
+                }
+                
+                btn.appendChild(circle);
+            }
+        });
+        
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
